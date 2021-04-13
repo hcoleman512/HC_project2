@@ -3,13 +3,21 @@
     
     <!-- THE HEAD TAG PARTIAL -->
     <%- include("partials/head") %>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+        <title>Products</title>
+    </head>
     <body>
         <!-- THE HEADER TAG PARTIAL -->
         <%- include("partials/header") %>
         <main>
-
-
+            <h1 class="title">Welcome to Henry's Candy Store</h1>
+            <h2 class="subtitle">Where you buy some your childhood best Candy</h2>
+            <a href="/auth/signup"><button class="button">SIGNUP</button></a>
+            <a href="/auth/login"><button class="button">LOGIN</button></a>
         </main>
         <!-- THE HEAD TAG PARTIAL -->
         <%- include("partials/footer") %>
