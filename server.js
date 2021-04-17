@@ -61,6 +61,7 @@ app.use(
 
 //HomeRouter
 app.use("/", HomeRouter);
+//app.use("/products")
 
 /////////////////////////////////////
 // App Listener

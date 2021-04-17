@@ -36,6 +36,14 @@ router.use(addUserToRequest)
 ///////////////////////////////
 // Router Routes
 ////////////////////////////////
+router.get("/", (req, res) => {
+  res.render("home")
+})
+
+router.get("/partials/contact", (req, res) => {
+  res.render("contact")
+})
+
 //SIGNUP ROUTES
 router.get("/auth/signup", (req, res) => {
     res.render("auth/signup")
@@ -72,7 +80,7 @@ router.get("/auth/login", (req, res) => {
           // add userId property to the session object
           req.session.userId = user._id;
           // redirect
-          res.redirect("/images");
+          res.redirect("/products");
         } else {
           res.json({ error: "Password does not match" });
         }
@@ -93,31 +101,31 @@ router.get("/auth/logout", (req, res) => {
   })
 
     // Goals Index Route render view (we will include new form on index page) (protected by auth middleware)
-router.get("/images", isAuthorized, async (req, res) => {
+router.get("/products", isAuthorized, async (req, res) => {
     // get updated user
     const user = await User.findOne({ username: req.user.username })
     // render template passing it list of goals
-    res.render("images", {
+    res.render("products", {
       images: user.images,
     })
   })
   
-  router.get("/images", isAuthorized, async (req, res) => {
+  router.get("/products", isAuthorized, async (req, res) => {
     // pass req.user to our template
-    res.render("images", {
+    res.render("products", {
         images: user.images,
     })
 })
 
 //goals create route when form submitted
-router.post("/images", isAuthorized, async (req, res) => {
+router.post("/products", isAuthorized, async (req, res) => {
     // fetch up to date user
     const user = await User.findOne({username: req.user.username})
     // push the goal into the user
     user.images.push(req.body)
     await user.save()
     // redirect back to goals
-    res.redirect("/images")
+    res.redirect("/products")
 })
 
 ///////////////////////////////
