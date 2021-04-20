@@ -18,6 +18,13 @@ const HomeRouter = require("./routes/home.js");
 const session = require("express-session"); // create session cookies
 const connect = require("connect-mongodb-session")(session) // store cookies in mongo
 
+////////////////////////////
+// Import Controllers
+////////////////////////////
+
+const productsController = require("./controllers/products.js");
+const usersController = require("./controllers/users.js");
+
 /////////////////////////////////////
 // Create Express Application Object
 /////////////////////////////////////
@@ -38,6 +45,7 @@ app.use(express.static("public")); // serve the public folder as static
 app.use(morgan("tiny")); // Request Logging
 app.use(express.json()); // Parse json bodies
 app.use(express.urlencoded({ extended: false })); //parse bodies from form submissions
+//app.use("/products", productsController);
 // SESSION MIDDLEWARE REGISTRATION (adds req.session property)
 app.use(
   session({
@@ -62,7 +70,17 @@ app.use(
 //HomeRouter
 app.use("/", HomeRouter);
 //app.use("/products")
+app.get("/", (req, res) => {
+  res.redirect("/products")
+})
 
+///////////////////////////////
+// Controllers
+///////////////////////////////
+// any routes that come in for products should be sent to the products controller
+
+app.use("/products", productsController);
+app.use("/users", usersController);
 /////////////////////////////////////
 // App Listener
 /////////////////////////////////////

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+
+    <title>Edit Fruit Page</title>
+</head>
+<body>
+    <h1>Edit Products Page</h1>
+        <form action="/products/<%=product.id%>?_method=PUT" method="POST">
+    		Name: <input type="text" name="name" value="<%=product.name%>"/><br/>
+    		Description: <input type="text" name="description" value="<%=product.description%>"/><br/>
+            Image: <input type="text" name="img" value="<%=product.img%>"/><br />
+            Quantity: <input type="text" name="qty" value="<%=product.qty%>"/><br />
+            Price: <input type="text" name="price" value="<%=product.price%>"/><br />
+    		Out of Stock:
+            <input type="checkbox" name="inStock"
+                <% if(product.qty === 0){ %>
+                    checked
+                <% } %>
+            />
+        </form>
+</body>
+</html>

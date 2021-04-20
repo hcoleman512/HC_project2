@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Products</title>
+</head>
+<body>
+    <h2 class="indexHeader">Welcome to Products</h2>
+    <div class="link_add_new_product">
+        <a href="new">Add New Product</a>
+    <br>
+    <ul>
+        <% for(let i = 0; i < products.length; i++) { %>
+            <li class="product_list">
+                <p class="product_name">
+                    <%= products[i].name %>
+                </p>
+                 <a href="/products/<%=products[i].id;%>"> <div class="product_images">
+                     <img src="<%= products[i].img %>" alt="picture"></a>
+                </div>
+                <br>
+                <br>
+            </li>
+            <% } %>
+    </ul>
+</body>
+</html>
