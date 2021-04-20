@@ -8,6 +8,7 @@
     <title>Document</title>
 </head>
 <body>
+<<<<<<< HEAD
     <p class="product-name">Candy: </p>
     <h3> <%=product.name; %></h3>
     <br>
@@ -23,6 +24,18 @@
     <%=product.price; %>.
     <br>
     <br>
+=======
+    <p class="product-name">Here we have: </p>
+    <h3> <%=product.name; %></h3>
+    <br>
+    <br>
+    <img src="<%= product.img %>" alt="picture"></a>
+    <br>
+    <br>
+    <%=product.description; %>.
+    <br>
+    <br>
+>>>>>>> d782b0a8d08607fa93f9d574172e34fe3087dd8d
     <% if(product.qty === 0){ %>
     <strong>Out of Stock</strong>
     <% } else { %>

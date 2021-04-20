@@ -6,14 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
 
+<<<<<<< HEAD
     <title>Edit Products Page</title>
+=======
+    <title>Edit Fruit Page</title>
+>>>>>>> d782b0a8d08607fa93f9d574172e34fe3087dd8d
 </head>
 <body>
     <h1>Edit Products Page</h1>
         <form action="/products/<%=product.id%>?_method=PUT" method="POST">
     		Name: <input type="text" name="name" value="<%=product.name%>"/><br/>
     		Description: <input type="text" name="description" value="<%=product.description%>"/><br/>
+<<<<<<< HEAD
             Image: <input type="text" name="url" value="<%=product.img%>"/><br />
+=======
+            Image: <input type="text" name="img" value="<%=product.img%>"/><br />
+>>>>>>> d782b0a8d08607fa93f9d574172e34fe3087dd8d
             Quantity: <input type="text" name="qty" value="<%=product.qty%>"/><br />
             Price: <input type="text" name="price" value="<%=product.price%>"/><br />
     		Out of Stock:
@@ -22,6 +30,7 @@
                     checked
                 <% } %>
             />
+<<<<<<< HEAD
              <!-- EDIT FORM -->
     <a href="/products/<%=product.id%>/edit" class="editLink">Edit</a>
     <br>
@@ -34,6 +43,8 @@
   <nav>
     <a href="/products">Back to Products</a>
   </nav>
+=======
+>>>>>>> d782b0a8d08607fa93f9d574172e34fe3087dd8d
         </form>
 </body>
 </html>

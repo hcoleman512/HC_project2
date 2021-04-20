@@ -10,7 +10,11 @@
 <body>
     <h2 class="indexHeader">Welcome to Products</h2>
     <div class="link_add_new_product">
+<<<<<<< HEAD
         <a href="/products/new">Add New Product</a>
+=======
+        <a href="new">Add New Product</a>
+>>>>>>> d782b0a8d08607fa93f9d574172e34fe3087dd8d
     <br>
     <ul>
         <% for(let i = 0; i < products.length; i++) { %>
@@ -19,7 +23,11 @@
                     <%= products[i].name %>
                 </p>
                  <a href="/products/<%=products[i].id;%>"> <div class="product_images">
+<<<<<<< HEAD
                      <img src="<%= products[i].url %>" alt="picture"></a>
+=======
+                     <img src="<%= products[i].img %>" alt="picture"></a>
+>>>>>>> d782b0a8d08607fa93f9d574172e34fe3087dd8d
                 </div>
                 <br>
                 <br>
