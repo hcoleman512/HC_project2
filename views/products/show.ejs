@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <p class="product-name">Candy: </p>
+    <h3> <%=product.name; %></h3>
+    <br>
+    <br>
+    <img src="<%= product.url %>" alt="picture"></a>
+    <br>
+    <br>
+    <strong>Description:</strong>
+    <%=product.description; %>.
+    <br>
+    <br>
+    <strong>Price: $</strong>
+    <%=product.price; %>.
+    <br>
+    <br>
+    <% if(product.qty === 0){ %>
+    <strong>Out of Stock</strong>
+    <% } else { %>
+    <strong>In Stock</strong>
+    <% } %>
+    <br>
+    <br>
+    <% if(product.qty === 1) { %>
+    There is now <%= product.qty %> <%= product.name %> left.
+    <% } else { %>
+      There are now <%= product.qty %> <%= product.name %> left.
+    <% } %>
+    <br>
+    <br>
+    <!-- EDIT FORM -->
+    <a href="/products/<%=product.id%>/edit" class="editLink">Edit</a>
+    <br>
+    <br>
+    <!-- DELETE FORM  -->
+    <form action="/products/<%=product.id%>?_method=DELETE" method="POST" class ="deleteLink">
+    <input type="submit" value="DELETE" />
+    </form>
+    <br>
+  <nav>
+    <a href="/products">Back to Products</a>
+  </nav>
+
+</body>
+</html>

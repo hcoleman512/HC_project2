@@ -14,6 +14,8 @@ const cors = require("cors");
 const PORT = process.env.PORT || "2021";
 const SECRET = process.env.SECRET || "secret"
 const HomeRouter = require("./routes/home.js");
+const productRouter = require("./routes/products");
+
 // Sessions Middleware
 const session = require("express-session"); // create session cookies
 const connect = require("connect-mongodb-session")(session) // store cookies in mongo
@@ -38,6 +40,8 @@ app.use(express.static("public")); // serve the public folder as static
 app.use(morgan("tiny")); // Request Logging
 app.use(express.json()); // Parse json bodies
 app.use(express.urlencoded({ extended: false })); //parse bodies from form submissions
+//app.use("/products", productRouter);
+
 // SESSION MIDDLEWARE REGISTRATION (adds req.session property)
 app.use(
   session({
@@ -62,7 +66,7 @@ app.use(
 //HomeRouter
 app.use("/", HomeRouter);
 //app.use("/products")
-
+app.use("/products", productRouter);
 /////////////////////////////////////
 // App Listener
 /////////////////////////////////////

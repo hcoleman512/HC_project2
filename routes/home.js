@@ -100,33 +100,33 @@ router.get("/auth/logout", (req, res) => {
     res.redirect("/")
   })
 
-    // Goals Index Route render view (we will include new form on index page) (protected by auth middleware)
-router.get("/products", isAuthorized, async (req, res) => {
-    // get updated user
-    const user = await User.findOne({ username: req.user.username })
-    // render template passing it list of goals
-    res.render("products", {
-      images: user.images,
-    })
-  })
+//     // Goals Index Route render view (we will include new form on index page) (protected by auth middleware)
+// router.get("/products", isAuthorized, async (req, res) => {
+//     // get updated user
+//     const user = await User.findOne({ username: req.user.username })
+//     // render template passing it list of goals
+//     res.render("products", {
+//       images: user.images,
+//     })
+//   })
   
-  router.get("/products", isAuthorized, async (req, res) => {
-    // pass req.user to our template
-    res.render("products", {
-        images: user.images,
-    })
-})
+//   router.get("/products", isAuthorized, async (req, res) => {
+//     // pass req.user to our template
+//     res.render("products", {
+//         images: user.images,
+//     })
+// })
 
-//goals create route when form submitted
-router.post("/products", isAuthorized, async (req, res) => {
-    // fetch up to date user
-    const user = await User.findOne({username: req.user.username})
-    // push the goal into the user
-    user.images.push(req.body)
-    await user.save()
-    // redirect back to goals
-    res.redirect("/products")
-})
+// //goals create route when form submitted
+// router.post("/products", isAuthorized, async (req, res) => {
+//     // fetch up to date user
+//     const user = await User.findOne({username: req.user.username})
+//     // push the goal into the user
+//     user.images.push(req.body)
+//     await user.save()
+//     // redirect back to goals
+//     res.redirect("/products")
+// })
 
 ///////////////////////////////
 // Export Router
